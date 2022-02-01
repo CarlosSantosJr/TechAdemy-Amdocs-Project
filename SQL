@@ -1,0 +1,122 @@
+create table user1(
+	user_id INT NOT NULL AUTO_INCREMENT,
+	name varchar(100),
+	phone_no varchar(100),
+	email varchar(100),
+	address varchar(100),
+	reg_date date,
+	password varchar(100),
+	upload_photo long,
+	PRIMARY KEY ( user_id )
+);
+
+insert into
+user1 (name,phone_no,email,address,password,upload_photo)
+values('Ankit','4578008234','ankit@gmail.com','noida','ankit','img.jpg');
+
+insert into
+user1(name,phone_no,email,address,reg_date,password,upload_photo)
+values('Rahul','9586234712','rahul@gmail.com','banglore','2021-06-06','rahul','img1.jpg');
+
+insert into
+user1(name,phone_no,email,address,reg_date,password,upload_photo)
+values('gouthami','8524379162','gouthami@gmail.com','anantapur','2021-02-03','gouthami','img2.jpg');
+
+insert into
+user1(name,phone_no,email,address,reg_date,password,upload_photo)
+values('iswarya','9256279162','iswarya@gmail.com','nellore','2021-02-22','iswarya','img3.jpg');
+
+insert into
+user1(name,phone_no,email,address,reg_date,password,upload_photo)
+values('harshitha','7456279162','harshitha@gmail.com','vijayawada','2021-01-22','harshitha','img4.jpg');
+
+---------------------------------------------------------------------------------------------------
+
+create table contact(
+	contact_id INT NOT NULL AUTO_INCREMENT,
+	user_id INT,
+	name varchar(30), 
+	Email varchar(20), 
+	Phone_no varchar(50), 
+	Messege varchar(20), 
+	PRIMARY KEY ( contact_id ),
+	FOREIGN KEY(user_id) REFERENCES user1(user_id)
+);
+
+insert into contact (user_id, name, Email, Phone_no, Messege)
+	values (1, 'Ankit', 'ankit@gmail.com', '1234', 'Message');
+
+insert into contact (user_id, name, Email, Phone_no, Messege)
+	values (2, 'Rahul', 'rahul@gmail.com', '1235', 'Message');
+
+insert into contact (user_id, name, Email, Phone_no, Messege)
+	values (3, 'Gouthami','Gouthami@gmail.com', '1236', 'Message');
+
+insert into contact (user_id, name, Email, Phone_no, Messege)
+	values (5, 'Ishwarya','Ishwarya@gmail.com', '1237', 'Message');
+
+insert into contact (user_id, name, Email, Phone_no, Messege)
+	values (6, 'Harshitha','Harshitha@gmail.com', '1238', 'Message');
+
+-----------------------------------------------------------------------------------
+
+create table admin ( 
+	admin_id INT NOT NULL AUTO_INCREMENT, 
+	name varchar(100),
+	email varchar(100), 
+	password varchar(100),
+	PRIMARY KEY ( admin_id )
+);
+
+insert into admin (name, email, password)
+	values ('rahul','rahul@gmail.com','pass');
+
+insert into admin (name, email, password)
+	values ('ankit','ankit@gmail.com','pass');
+
+insert into admin (name, email, password)
+	values ('gowthami','gowthami@gmail.com','pass');
+
+insert into admin (name, email, password)
+	values ('aishwarya','aishwarya@gmail.com','pass');
+
+insert into admin (name, email, password)
+	values ('harshitha','harshitha@gmail.com','pass');
+
+
+------------------------------------------------------------------------------------
+
+create table course ( 
+	course_id INT NOT NULL AUTO_INCREMENT,  
+	c_name varchar(100),
+	c_desp varchar(100), 
+	c_fees  decimal(10,2),
+	c_resource varchar(100),
+	PRIMARY KEY ( course_id )
+);
+
+insert into course (c_name,c_desp,c_fees,c_resource)
+	values ('JAVA','Programing language',299, 'video.mp4');
+
+insert into course (c_name,c_desp,c_fees,c_resource)
+	values ('C Programming','Programming language',199, 'cprogram.mp4');
+
+insert into course (c_name,c_desp,c_fees,c_resource)
+	values ('C++ Programming','Programming language',199, 'c++program.mp4');
+
+------------------------------------------------------------------------------------
+
+create table feedback(
+	f_id INT NOT NULL AUTO_INCREMENT,
+	user_id INT,
+	name varchar(100),
+	email varchar(100),
+	feedback varchar(100),
+	PRIMARY KEY ( f_id ),
+	FOREIGN KEY(user_id) REFERENCES user1(user_id)
+);
+
+insert into feedback (user_id,name,email,feedback)
+	values (1,'ankit','ankit@gmail.com','good');
+insert into feedback (user_id,name,email,feedback)
+	values(6,'harshitha','harshitha@gmail.com','good');
